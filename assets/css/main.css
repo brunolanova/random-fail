@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/**
+ *  Folha de estilos principal.
+ *
+ *  @package    main.scss
+ *  @category   Website Custom
+ *  @author     Bruno Lima <brunolima@phocus.com.br>
+ *  @copyright  Phocus Interact
+ *  @link       /scss/main.scss
+ *  @since      1.0.0
+ */
+/**
+ *  Variáveis e mixins SASS/Compass
+ *
+ *  @package    configurations.scss
+ *  @category   Website Custom
+ *  @author     Bruno Lima <brunolima@phocus.com.br>
+ *  @copyright  Phocus Interact
+ *  @link       /scss/configurations.scss
+ */
+/* Importando Compass Mixins  */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+/* Global Vars */
+/* Resolutions width */
+/* Clears the floater elements for a correct alignment */
+/* Shows a element without changing the 'display' property */
+/* Hides a element without changing the 'display' property */
+/* Creates a stylesheets for placeholders */
+/* Creates a pseudo element for vertical align of its sibling */
+/* Resets */
+article, aside, details, figcaption, figure, footer, header, nav, section, summary {
+  display: block;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+iframe {
+  display: block;
+}
+
+textarea {
+  overflow: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #4A4A4A;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #4A4A4A;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #4A4A4A;
+}
+
+:-ms-input-placeholder {
+  color: #4A4A4A;
+}
+
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  outline: none !important;
+  -webkit-outline: none !important;
+  font-weight: 400;
+  text-decoration: none;
+  font-family: 'Roboto';
+  color: #4A4A4A;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Default Elements Styles */
+[ng-view] {
+  width: 100%;
+}
+
+body {
+  background: #222222;
+}
+
+.container {
+  position: relative;
+  max-width: 1440px;
+  padding: 0 10px;
+  margin: 0 auto;
+  /* Desktop styles : 1024px */
+  /* Tablet styles : 768px */
+  /* Mobile styles : 320px */
+}
+.container.extra-padding {
+  padding: 0 130px;
+}
+@media screen and (max-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.logo {
+  padding: 40px 0;
+  text-align: center;
+}
+.logo a {
+  display: inline-block;
+}
+.logo a span {
+  font-size: 50px;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  display: table;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background: #CCCCCC url("../img/bg.jpg") no-repeat center;
+}
+.wrapper .send-fail {
+  position: fixed;
+  z-index: 10;
+  display: block;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #EFEFEF;
+  border-bottom: #DB2700 solid 5px;
+  -moz-transition-duration: 400ms;
+  -o-transition-duration: 400ms;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+.wrapper .send-fail .trigger {
+  display: block;
+  position: absolute;
+  width: 60px;
+  height: 20px;
+  left: 0;
+  right: 0;
+  bottom: -30px;
+  margin: auto;
+  background-color: #FFFFFF;
+  border: #DB2700 5px solid;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  text-align: center;
+}
+.wrapper .send-fail .trigger span {
+  display: inline-block;
+  font-size: 16px;
+  line-height: 20px;
+}
+.wrapper .send-fail form {
+  height: 60px;
+  width: 100%;
+}
+.wrapper .send-fail form ::-webkit-input-placeholder {
+  color: #BCBCBC;
+}
+.wrapper .send-fail form :-moz-placeholder {
+  /* Firefox 18- */
+  color: #BCBCBC;
+}
+.wrapper .send-fail form ::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #BCBCBC;
+}
+.wrapper .send-fail form :-ms-input-placeholder {
+  color: #BCBCBC;
+}
+.wrapper .send-fail form input {
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  height: 100%;
+  width: 450px;
+  margin-right: 20px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.wrapper .send-fail form button {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 200px;
+  background-color: #DB2700;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.wrapper .send-fail form button:hover {
+  background-color: #ff3a0f;
+}
+.wrapper .send-fail.active {
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+.wrapper .send-fail.active .trigger span {
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.container {
+  display: table-cell;
+  vertical-align: middle;
+}
+.container .video {
+  position: relative;
+  width: 65%;
+  height: 55%;
+  margin: 0 auto 40px;
+  -moz-box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.35);
+}
+.container .video iframe {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+.container .video .votes {
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 22px;
+}
+.container .video .votes b {
+  display: inline-block;
+  margin-left: 10px;
+}
+.container .video .votes.up b {
+  color: #04756F;
+}
+.container .video .votes.down b {
+  color: #FF2D00;
+}
+.container .ctrls a {
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 100%;
+}
+.container .ctrls a.prev {
+  left: -20%;
+  background: #242028 url("../img/prev.png") no-repeat 35px center;
+  background-size: 20px;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.container .ctrls a.prev:hover {
+  -moz-transform: translateX(-5px);
+  -ms-transform: translateX(-5px);
+  -webkit-transform: translateX(-5px);
+  transform: translateX(-5px);
+  background-position: 30px;
+  background-color: #24071E;
+}
+.container .ctrls a.next {
+  right: -20%;
+  background: #242028 url("../img/next.png") no-repeat 45px center;
+  background-size: 20px;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.container .ctrls a.next:hover {
+  -moz-transform: translateX(5px);
+  -ms-transform: translateX(5px);
+  -webkit-transform: translateX(5px);
+  transform: translateX(5px);
+  background-position: 50px;
+  background-color: #24071E;
+}
+.container .actions {
+  margin: auto;
+  text-align: center;
+}
+.container .actions a {
+  display: inline-block;
+  vertical-align: middle;
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  background-color: #CCCCCC;
+  margin: 0 10px;
+  -moz-box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.35);
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.35);
+}
+.container .actions a.random {
+  width: 140px;
+  height: 140px;
+  background: #FF8C00 url("../img/random.png") no-repeat center;
+  background-size: 60px;
+  -moz-transition-duration: 400ms;
+  -o-transition-duration: 400ms;
+  -webkit-transition-duration: 400ms;
+  transition-duration: 400ms;
+}
+.container .actions a.random:hover {
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  background-color: #390b30;
+  background-size: 80px;
+}
+.container .actions a.upvote {
+  background: #009DBF url("../img/upvote.png") no-repeat center;
+  background-size: 40px;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.container .actions a.upvote:hover {
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+.container .actions a.downvote {
+  background: #DB2700 url("../img/downvote.png") no-repeat center;
+  background-size: 40px;
+  -moz-transition-duration: 200ms;
+  -o-transition-duration: 200ms;
+  -webkit-transition-duration: 200ms;
+  transition-duration: 200ms;
+}
+.container .actions a.downvote:hover {
+  -moz-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  -webkit-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}

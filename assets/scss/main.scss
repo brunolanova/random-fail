@@ -1,0 +1,361 @@
+/**
+ *  Folha de estilos principal.
+ *
+ *  @package    main.scss
+ *  @category   Website Custom
+ *  @author     Bruno Lima <brunolima@phocus.com.br>
+ *  @copyright  Phocus Interact
+ *  @link       /scss/main.scss
+ *  @since      1.0.0
+ */
+
+@import "configurations";
+
+/* Resets */
+article, aside, details, figcaption, figure, footer, header, nav, section, summary { display: block; }
+ul, li { list-style-type: none; }
+table { border-collapse: collapse; }
+iframe { display: block; }
+textarea { overflow: auto; }
+h1,h2,h3,h4,h5,h6 { margin :0; }
+button::-moz-focus-inner { border: 0; padding: 0; }
+@include input-placeholder { color: $default-color }
+
+* { 
+	
+	border: 0; 
+	margin: 0; 
+	padding: 0; 
+	
+	outline: none !important; 
+	-webkit-outline: none !important; 
+
+	font-weight: 400;
+	text-decoration: none; 
+	font-family: 'Roboto'; 
+	color: $default-color;
+	
+	text-rendering: optimizeLegibility; 
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Default Elements Styles */
+[ng-view] { width: 100%; }
+
+body { background: #222222; }
+
+.container {
+
+	position: relative;
+
+	max-width: $hd-desktop-width;
+	padding: 0 10px;
+	margin: 0 auto;
+
+	&.extra-padding { padding: 0 130px; }
+
+	/* Desktop styles : 1024px */
+	@media screen and (max-width: $desktop-width) {
+		max-width: $desktop-width;
+	}
+	
+	/* Tablet styles : 768px */
+	@media screen and (max-width: $tablet-width) {
+		max-width: $tablet-width;
+	}
+
+	/* Mobile styles : 320px */
+	@media screen and (max-width: $mobile-width) {
+	
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+
+.logo {
+
+	padding: 40px 0;
+
+	text-align: center;
+
+	a {
+
+		display: inline-block;
+
+		span {
+			font-size: 50px;
+			text-transform: uppercase;
+		}
+	} 
+}
+
+.wrapper {
+
+	display: table;
+	position: relative;
+	
+	height: 100%;
+	width: 100%;
+
+	background: #CCCCCC url('../img/bg.jpg') no-repeat center;
+
+	.send-fail {
+
+		position: fixed;
+		z-index: 10;
+		display: block;
+		box-sizing: border-box;
+
+		top: 0;
+		left: 0;
+		
+		width: 100%;
+		padding: 20px;
+		background-color: #EFEFEF;
+		border-bottom: #DB2700 solid 5px;
+		@include transition-duration(400ms);
+		@include transform(translateY(-100px));
+
+		.trigger {
+
+			display: block;
+			position: absolute;
+
+			width: 60px;
+			height: 20px;
+
+			left: 0; right: 0;
+			bottom: -30px;
+			margin: auto;
+
+			background-color: #FFFFFF;
+			border: #DB2700 5px solid;
+			border-bottom-left-radius: 20px;
+    		border-bottom-right-radius: 20px;
+
+			text-align: center;
+
+			span {
+
+				display: inline-block;
+				
+				font-size: 16px;
+				line-height: 20px;
+			}
+		}
+
+		form {
+
+			height: 60px;
+			width: 100%;
+
+			@include input-placeholder {
+				color: #BCBCBC;
+			}
+
+			input {
+
+				display: inline-block;
+				vertical-align: middle;
+				box-sizing: border-box;
+
+				height: 100%;
+				width: 450px;
+				margin-right: 20px;
+				padding: 10px;
+				font-size: 16px;
+				font-weight: bold;
+				letter-spacing: 1px;
+
+				border-radius: 3px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+			}
+
+			button {
+
+				display: inline-block;
+				vertical-align: middle;
+				
+				height: 100%;
+				width: 200px;
+
+				background-color: #DB2700;
+				border-radius: 3px;
+				box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+
+				text-align: center;
+				color: #FFFFFF;
+				font-size: 16px;
+				text-transform: uppercase;
+				font-weight: bold;
+				letter-spacing: 1px;
+
+				@include transition-duration(200ms);
+				
+				&:hover { background-color: lighten(#DB2700, 10%); }
+			}
+		}
+
+		&.active { 
+		
+			@include transform(translateY(0)); 
+
+			.trigger span { @include transform(rotate(45deg)); }
+		}
+	}
+}
+
+.container {
+
+	display: table-cell;
+	vertical-align: middle;
+
+	.video {
+
+		position: relative;
+
+		width: 65%;
+		height: 55%;
+
+		margin: 0 auto 40px;
+
+		@include box-shadow(2px 4px 10px rgba(#000, .35));
+
+		iframe {
+			
+			display: block;
+
+			height: 100%;
+			width: 100%;	
+		}
+		
+		.votes {
+			
+			position: absolute;
+
+			right: 0;
+			bottom: -40px;
+
+			color: #FFFFFF;
+			text-transform: uppercase;
+			font-size: 22px;
+			
+			b {
+
+				display: inline-block;
+
+				margin-left: 10px;
+			}
+
+			&.up b { color: #04756F; }
+
+			&.down b { color: #FF2D00; }
+		}
+
+	}
+	
+	.ctrls a {
+
+		display: block;
+		position: absolute;
+
+		width: 100px;
+		height: 100px;
+
+		top: 0;
+		bottom: 0;
+		margin: auto;
+
+		border-radius: 100%;
+
+		&.prev {
+
+			left: -20%;
+			background: #242028 url('../img/prev.png') no-repeat 35px center;
+			background-size: 20px;
+
+			@include transition-duration(200ms);
+
+			&:hover { 
+				@include transform(translateX(-5px));
+				background-position: 30px; 
+				background-color: #24071E;
+			}
+		}
+
+		&.next {
+
+			right: -20%;
+			background: #242028 url('../img/next.png') no-repeat 45px center;
+			background-size: 20px;
+
+			@include transition-duration(200ms);
+
+			&:hover { 
+				@include transform(translateX(5px));
+				background-position: 50px; 
+				background-color: #24071E;
+			}
+		}
+	}
+
+	.actions {
+
+		margin: auto;
+
+		text-align: center;
+
+		a {
+			display: inline-block;
+			vertical-align: middle;
+
+			width: 90px;
+			height: 90px;
+
+			border-radius: 100%;
+			background-color: #CCCCCC;
+
+			margin: 0 10px;
+
+			@include box-shadow(2px 4px 8px rgba(#000, .35));
+
+			&.random {
+
+				width: 140px;
+				height: 140px;
+
+				background: #FF8C00 url('../img/random.png') no-repeat center;
+				background-size: 60px;
+
+				@include transition-duration(400ms);
+
+				&:hover { 
+
+					@include transform(rotate(360deg)); 
+					background-color: lighten(#24071E, 5%);
+					background-size: 80px;
+				}
+			}
+
+			&.upvote {
+
+				background: #009DBF url('../img/upvote.png') no-repeat center;
+				background-size: 40px;
+
+				@include transition-duration(200ms);
+
+				&:hover { @include transform(rotate(-10deg)); }
+			}
+
+			&.downvote {
+				background: #DB2700 url('../img/downvote.png') no-repeat center;
+				background-size: 40px;
+
+				@include transition-duration(200ms);
+
+				&:hover { @include transform(rotate(-10deg)); }
+			}
+		}
+	}
+}

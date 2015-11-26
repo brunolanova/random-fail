@@ -1,0 +1,102 @@
+/**
+ *  Variáveis e mixins SASS/Compass
+ *
+ *  @package    configurations.scss
+ *  @category   Website Custom
+ *  @author     Bruno Lima <brunolima@phocus.com.br>
+ *  @copyright  Phocus Interact
+ *  @link       /scss/configurations.scss
+ */
+
+/* Importando Compass Mixins  */
+@import "compass/css3/box-sizing";
+@import "compass/css3/opacity";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/user-interface";
+@import "compass/css3/animation";
+@import "compass/css3/filter";
+@import "compass/css3/box-shadow";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+
+/* Global Vars */
+$default-transition-speed: 200ms;
+$default-transition-function: easeout;
+
+$default-color: #4A4A4A;
+
+$light-blue: #259CFF;
+$medium-blue: #0067B3;
+$dark-blue: #284175;
+
+$light-grey: #E5E5E5;
+$medium-grey: #CCCCCC;
+$dark-grey: #B2B2B2;
+
+$light-yellow: #FCDF32;
+$dark-yellow: #F4C122;
+
+$red: #E20000;
+
+/* Resolutions width */
+$hd-desktop-width: 1440px;
+$desktop-width: 1024px;
+$tablet-width: 768px;
+$mobile-width: 320px;
+
+/* Clears the floater elements for a correct alignment */
+@mixin clear() {
+
+	&:after {
+		clear: both;
+		content: '';
+		display: block;
+	}
+}
+
+
+/* Shows a element without changing the 'display' property */
+@mixin show() {
+
+    @include opacity(1);
+    visibility: visible;
+}
+
+/* Hides a element without changing the 'display' property */
+@mixin hide() {
+    
+    @include opacity(0);
+    visibility: hidden;
+}
+
+/* Creates a stylesheets for placeholders */
+@mixin input-placeholder {
+	::-webkit-input-placeholder {
+		@content;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+		@content;
+	}
+	::-moz-placeholder {  /* Firefox 19+ */
+		@content;
+	}
+	:-ms-input-placeholder {
+		@content;
+	}
+}
+
+
+/* Creates a pseudo element for vertical align of its sibling */
+@mixin v-align($direction:middle) {
+
+    &:after {
+
+        display: inline-block;
+        vertical-align: $direction;
+        content: '';
+        
+        height: 100%;
+    }
+}

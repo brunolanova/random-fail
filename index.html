@@ -1,0 +1,58 @@
+<!DOCTYPE>
+<html ng-app="RandomFailApp">
+	<head>
+		<title>RANDOM FAIL</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+		<!-- CSS / Shared stylesheets -->
+		<link rel="stylesheet" href="assets/css/main.css">
+		<script type="text/javascript" src="assets/libs/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="assets/libs/velocity-js.min.js"></script>
+		<script type="text/javascript" src="assets/libs/angular.min.js"></script>
+		<!-- Angular / Angular Dependences -->
+		<script type="text/javascript" src="assets/libs/angular-modules/angular-route.min.js"></script>
+		<script type="text/javascript" src="assets/libs/angular-modules/angular-animate.min.js"></script>
+		<script type="text/javascript" src="assets/libs/ui-bootstrap-custom-0.13.2.min.js"></script>
+		<script type="text/javascript" src="assets/libs/ui-bootstrap-custom-tpls-0.13.2.min.js"></script>
+		<!-- Angular / Module Init -->
+		<script type="text/javascript" src="app/app.module.js"></script>
+		<script type="text/javascript" src="app/app.routes.js"></script>
+		<!-- Angular / Main Controller -->
+		<script type="text/javascript" src="app/components/main.js"></script>
+		<base href="http://localhost/random-fail/">
+	</head>
+	<body ng-controller="MainCtrl">
+		<div class="wrapper">
+
+			<div class="send-fail" ng-class="{active:view.showForm}">
+				<form method="post" action="http://localhost/random-fail/api/?page=save">
+					<input type="text" name="video" placeholder="http://youtube.com/watch/?v=53DW2sWoV">
+					<button>Send Video</button>
+				</form>
+				<a ng-click="view.showForm = !view.showForm;" href="" class="trigger"><span>+</span></a>
+			</div>
+		
+			<div class="container">
+				<div class="video">
+					<iframe width="560" height="315" src="{{getVideoUrl(view.video)}}" frameborder="0" allowfullscreen></iframe>
+					<div class="ctrls">
+						<a href="" ng-click="videoIndex = videoIndex - 1;" class="prev"></a>
+						<a href="" ng-click="videoIndex = videoIndex + 1;"class="next"></a>
+					</div>
+					<span class="votes up" ng-if="view.videos[videoIndex].votes >= 0">
+						Votes:<b>{{view.video.votes}}</b>
+					</span>
+					<span class="votes down" ng-if="view.videos[videoIndex].votes < 0">
+						Votes:<b>{{view.video.votes}}</b>
+					</span>
+				</div>
+				<div class="actions">
+					<a href="" ng-click="upvote();" class="upvote"></a>
+					<a href="" ng-click="randomize();" class="random"></a>
+					<a href="" ng-click="downvote();" class="downvote"></a>
+					
+				</div>
+			</div>
+		</div> 
+	</body>
+</html>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/**
+ *  Variáveis e mixins SASS/Compass
+ *
+ *  @package    configurations.scss
+ *  @category   Website Custom
+ *  @author     Bruno Lima <brunolima@phocus.com.br>
+ *  @copyright  Phocus Interact
+ *  @link       /scss/configurations.scss
+ */
+/* Importando Compass Mixins  */
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+/* Global Vars */
+/* Resolutions width */
+/* Clears the floater elements for a correct alignment */
+/* Shows a element without changing the 'display' property */
+/* Hides a element without changing the 'display' property */
+/* Creates a stylesheets for placeholders */
+/* Creates a pseudo element for vertical align of its sibling */

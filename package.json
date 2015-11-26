@@ -1,0 +1,23 @@
+{
+  "name": "gobruno",
+  "version": "1.0.0",
+  "description": "A test app",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phocusinteract/guiavale-site.git"
+  },
+  "author": "Phocus Interact",
+  "license": " ",
+  "bugs": {
+    "url": "https://github.com/phocusinteract/guiavale-site/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.6.2",
+    "gulp-compass": "~1.1.9",
+    "gulp-jshint": "~1.0"
+  }
+}
