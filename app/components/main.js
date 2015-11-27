@@ -1,3 +1,4 @@
+// VAI VAI VAI
 angular.module('RandomFailApp')
 
 .factory('VideoService', ['$q', '$http', function($q, $http){
